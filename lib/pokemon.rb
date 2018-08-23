@@ -10,10 +10,8 @@ class Pokemon
   end
 
   def self.find(id, db)
-  new_p =  db.execute("SELECT * FROM pokemon WHERE pokemon.id = (?)", id)
-  #Pokemon.new // array[i] for attributes 
-  
-
+    new_p =  db.execute("SELECT * FROM pokemon WHERE pokemon.id = (?)", id)
+    Pokemon.new(id:new_p[0], name:new_p[1], type:new_p[2])
   end
 
 
